@@ -23,8 +23,8 @@ app.get('/tip/:total/:tipPercentage', (request, response) => {
     const total = `${request.params.total}`;
     const tipPercentage = `${request.params.tipPercentage}`
     let tipAmount = total * tipPercentage/100;
-    response.send(`Total: $${total}
-    Tip Percentage: ${tipPercentage}%
+    response.send(`Total: $${total}<br>
+    Tip Percentage: ${tipPercentage}%<br>
     Tip Amount: $${tipAmount}`)
 })
 
@@ -35,9 +35,10 @@ const magic8Ball = ["It is certain", "It is decidedly so", "Without a doubt", "Y
 
 app.get('/magic/:question', (request, response) => {
     const random = magic8Ball[Math.floor(Math.random() * magic8Ball.length)];
-    response.send(`${request.params.question}? <h1>${random}</h1>`)
+    response.send(`${request.params.question}?<br>
+    <h1>${random}</h1>`)
 })
 
 app.listen(PORT, () => {
-    console.log(`listening to post ${PORT}`)
+    console.log(`listening to port ${PORT}`)
 })
